@@ -1,4 +1,5 @@
 class InvoicesController < ApplicationController
+  layout "print", :only => [:index]
   
   def index
     @invoices = Invoice.all
@@ -12,7 +13,7 @@ class InvoicesController < ApplicationController
   def create
     @customer  = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.create(params[:invoice])
-    redirect_to invoice_path(@invoice)
+    redirect_to customer_invoice_path(@customer,@invoice)
   end
   
   def destroy
@@ -47,6 +48,12 @@ class InvoicesController < ApplicationController
     else
       render :action => "edit"
     end      
+  end
+  
+  def print
+    #render :layout => 'print'
+    @customer = Customer.find(params[:customer_id])
+    @invoice = @customer.invoices.find(params[:id])
   end
 
 end

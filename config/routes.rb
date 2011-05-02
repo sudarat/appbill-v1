@@ -11,6 +11,9 @@ Codeapp1::Application.routes.draw do
   resources :customers do
     resources :invoices do
       resources :invoicedescrips
+      member do
+	get 'print'
+      end
     end
   end
   
@@ -25,13 +28,14 @@ Codeapp1::Application.routes.draw do
   resources :quotations
   resources :quotadescrips
   
-  resources :invoices
+  resources :invoices 
   resources :invoicedescrips
 
   get "home/index"
   
   root :to => "home#index"
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -13,8 +13,9 @@
 
 <!--
 <h2>Add a description</h2>
-<%= render "quotadescrips/form"%>
+<%= render "invoicedescrips/form"%>
 -->
 
 <br />
+<%= link_to 'Print view',print_invoice_path(@invoice) %>
 <%= link_to 'Back', invoices_path %>
