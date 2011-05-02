@@ -1,0 +1,10 @@
+<%= form_for([@customer, @customer.invoices.build]) do |i| %>
+  <div class="field">
+    <%= i.label :ind_title , 'Project title'%><br />
+    <%= i.text_field :ind_title %>
+  </div>
+
+  <div class = "actions">
+    <%= i.submit %>
+  </div>
+<% end %>

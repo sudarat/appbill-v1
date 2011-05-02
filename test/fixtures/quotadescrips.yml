@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  qd_descrip: MyString
+  qd_quantity: 1
+  qd_unitprice: 1
+  quotation: 
+
+two:
+  qd_descrip: MyString
+  qd_quantity: 1
+  qd_unitprice: 1
+  quotation: 

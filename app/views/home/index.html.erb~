@@ -1,0 +1,6 @@
+<h1>Home#index</h1>
+
+<%= link_to 'ใบเสนอราคา', quotations_path %><br />
+<%= link_to 'ใบแจ้งหนี้', '#' %><br />
+<%= link_to 'ใบเสร็จรับเงิน', '#' %><br />
+<p>Find me in app/views/home/index.html.erb</p>

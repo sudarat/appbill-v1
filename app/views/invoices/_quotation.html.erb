@@ -1,0 +1,8 @@
+  <p>Project title : <%= invoice.ind_title %></p>  
+  <p> 
+      <%= link_to 'แสดงรายละเอียด', ([invoice.customer, invoice]) %>
+      <%= link_to 'แก้ไขโปรเจค', edit_customer_invoice_path(invoice.customer, invoice) %>
+      <%= link_to 'ลบโปรเจค' , [invoice.customer , invoice ], 
+	      :confirm => "Are you sure?" ,
+	      :method => :delete %></p>
+=============================================<br />

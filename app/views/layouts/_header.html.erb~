@@ -1,0 +1,16 @@
+<header>
+  <%= link_to logo, root_path%>
+  <nav class="round">
+     <ul>
+	<li><%= link_to "Home",root_path %></li>
+	<li><%= link_to "Customer",customers_path %></li>
+	<li><%= link_to "Add Report",newreports_path %></li>
+	<li><%= link_to 'ใบเสนอราคา', quotations_path %></li>
+	<li><%= link_to 'ใบแจ้งหนี้', '#' %><br /></li>
+	<li><%= link_to 'ใบเสร็จรับเงิน', '#' %></li>	
+     </ul>
+   </nav>
+  <nav>
+  </nav> 
+ 
+ </header>

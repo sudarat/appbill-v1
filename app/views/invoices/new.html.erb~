@@ -1,0 +1,3 @@
+<h2>เพิ่มโปรเจค</h2>
+<%= render "quotations/form" %>
+<%= link_to 'Back', @customer %>

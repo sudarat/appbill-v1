@@ -1,0 +1,29 @@
+<h1>กรุณาเลือกลูกค้า</h1>
+
+<table>
+  <tr>
+    <th>ชื่อลูกค้า</th>
+    <th></th>
+    <th>ที่อยู่</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.cust_name %></td>
+    <td></td>
+    <td><%= customer.cust_address %></td>
+    <td><%= link_to 'เลือก', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <!-- <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td> -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Customer', new_customer_path %>
+
+

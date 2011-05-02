@@ -1,0 +1,23 @@
+<h1>Edit description</h1>
+
+<%= form_for([@customer,@quotation, @quotadescrip]) do |qd|  %>
+  <div class="field">
+    <%= qd.label :qd_descrip %><br /> 
+    <%= qd.text_field :qd_descrip %>
+  </div>
+  <div class="field">
+    <%= qd.label :qd_quantity %><br /> 
+    <%= qd.text_field :qd_quantity %>
+  </div>
+  <div class="field">
+    <%= qd.label :qd_unitprice %><br /> 
+    <%= qd.text_field :qd_unitprice %>
+  </div>
+
+
+  <div class="actions">
+    <%= qd.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', customer_quotation_path(@quotation.customer,@quotation)%>

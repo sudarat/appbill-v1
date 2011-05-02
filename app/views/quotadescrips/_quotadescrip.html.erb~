@@ -1,0 +1,47 @@
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th>Quntity</th>
+    <th></th>
+    <th>Unit Price</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotation.quotadescrips.each do |quotadescrip| %> 
+<tr>
+  <td><%= quotadescrip.qd_descrip %></td>
+  <td></td>
+  <td><%= quotadescrip.qd_quantity %></td>
+  <td></td>
+  <td><%= quotadescrip.qd_unitprice %></td>
+  <td></td>
+  <td><!-- <%= link_to 'show',([quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip]) %> -->
+     <%= link_to 'edit', edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip) %>
+     <%= link_to 'Destroy Description',[quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip],
+		 :confirm => "Are you sure?",
+		 :method => :delete %></td>
+<% end %>
+</tr>
+
+</table>
+
+
+<%= form_for ([@customer,@quotation,@quotation.quotadescrips.build]) do |qdes| %>
+  <div class = "field">
+    <%= qdes.label :qd_descrip %><br />
+    <%= qdes.text_field :qd_descrip %>
+  </div>
+  <div class = "field">
+    <%= qdes.label :qd_quantity %><br />
+    <%= qdes.text_field :qd_quantity %>
+  </div>
+  <div class = "field">
+    <%= qdes.label :qd_unitprice %><br />
+    <%= qdes.text_field :qd_unitprice %>
+  </div>
+  <div class = "submit">
+    <%= qdes.submit %>
+  </div>
+<% end %>

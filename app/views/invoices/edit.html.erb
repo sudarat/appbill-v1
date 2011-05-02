@@ -1,0 +1,26 @@
+<h1>แก้ไขโปรเจค</h1>
+<%= form_for([@customer, @invoice]) do |i| %>
+  <div class="field">
+    <%= i.label :customer_id , 'Customer id'%><br />
+    <%= i.text_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= i.label :inv_title , 'Project title'%><br />
+    <%= i.text_field :inv_title %>
+  </div>
+
+  <div class = "actions">
+    <%= i.submit %>
+  </div>
+<% end %>
+
+
+<h2>Description</h2>
+<%= render :partial => "invoicedescrips/invoicedescrip" %>
+
+<h2>Add a description</h2>
+<%= render "invoicedescrips/form"%>
+
+
+<%= link_to 'Back', invoices_path %>
+

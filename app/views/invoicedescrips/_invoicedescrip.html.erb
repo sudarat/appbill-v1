@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th>Quntity</th>
+    <th></th>
+    <th>Unit Price</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoice.invoicedescrips.each do |invoicedescrip| %> 
+<tr>
+  <td><%= invoicedescrip.ind_descrip %></td>
+  <td></td>
+  <td><%= invoicedescrip.ind_quantity %></td>
+  <td></td>
+  <td><%= invoicedescrip.ind_unitprice %></td>
+  <td></td>
+  <td><!-- <%= link_to 'show',([invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip]) %> -->
+     <%= link_to 'edit', edit_customer_invoice_invoicedescrip_path(invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip) %>
+     <%= link_to 'Destroy Description',[invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip],
+		 :confirm => "Are you sure?",
+		 :method => :delete %></td>
+<% end %>
+</tr>
+
+</table>

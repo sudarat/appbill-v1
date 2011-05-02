@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ind_descrip: MyString
+  ind_quantity: 1
+  ind_unitprice: 1
+  invoice: 
+
+two:
+  ind_descrip: MyString
+  ind_quantity: 1
+  ind_unitprice: 1
+  invoice: 

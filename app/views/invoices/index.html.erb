@@ -1,0 +1,36 @@
+<h1>ใบแจ้งหนี้</h1>
+<% if notice != "" %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<table>
+  <tr>
+    <th>invoice-id</th>
+    <th></th>
+    <th>ชื่อลูกค้า</th>
+    <th></th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoices.each do |i| %>
+  <tr>
+    <td><%= i.id%>-<%= (i.created_at.year)+543 %></td>
+    <td></td>
+    <td><%= i.customer.cust_name%></td>
+    <td></td>
+    <td><%= i.inv_title %></td>
+    <td></td>
+    <td><%= link_to 'แสดงรายละเอียด', ([i.customer, i]) %></td>
+    <td><%= link_to 'แก้ไขใบแจ้งหนี้', edit_customer_invoice_path(i.customer, i) %></td>
+    <td><%= link_to 'ลบโปรเจค' , [i.customer , i ], 
+	      :confirm => "Are you sure?" ,
+	      :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<!--
+<%= link_to 'เพิ่มใบเสนอราคา' , newreports_path %>
+-->

@@ -1,0 +1,40 @@
+<h1>ใบเสนอราคา</h1>
+<% if notice != "" %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<table>
+  <tr>
+    <th>quota-id</th>
+    <th></th>
+    <th>ชื่อลูกค้า</th>
+    <th></th>
+    <th>Project</th>
+    <th></th>
+    <th>Detail</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quotations.each do |q| %>
+  <tr>
+    <td><%= q.id%>-<%= (q.created_at.year)+543 %></td>
+    <td></td>
+    <td><%= q.customer.cust_name%></td>
+    <td></td>
+    <td><%= q.quo_title %></td>
+    <td></td>
+    <td><%= q.quo_detail %></td>
+    <td></td>
+    <td><%= link_to 'แสดงรายละเอียด', ([q.customer, q]) %></td>
+    <td><%= link_to 'แก้ไขใบเสนอราคา', edit_customer_quotation_path(q.customer, q) %></td>
+    <td><%= link_to 'ลบโปรเจค' , [q.customer , q ], 
+	      :confirm => "Are you sure?" ,
+	      :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<!--
+<%= link_to 'เพิ่มใบเสนอราคา' , newreports_path %>
+-->

@@ -1,0 +1,22 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<h1>ข้อมูลลูกค้า</h1>
+<p>
+  <b>ชื่อลูกค้า:</b>
+  <%= @customer.cust_name %>
+</p>
+
+<p>
+  <b>ที่อยู่:</b>
+  <%= @customer.cust_address %>
+</p>
+
+<!--
+<h2>ใบเสนอราคา</h2>
+<%= render :partial => "quotations/quotation",
+	   :collection => @customer.quotations %>
+-->
+
+
+<%= link_to 'สร้างใบเสนอราคา', new_customer_quotation_path(@customer)  %>
+<%= link_to 'แก้ไขข้อมูลลูกค้า', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

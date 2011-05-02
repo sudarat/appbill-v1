@@ -1,0 +1,22 @@
+<h1>ข้อมูลโปรเจค</h1>
+<p id="notice"><%= notice %></p>
+
+
+  <p>Project title : <%= @quotation.quo_title %></p>
+  <p>Detail : <%= @quotation.quo_detail %></p>
+  <p>Terms : <%= @quotation.quo_terms %> Days</p>
+  <p>condition : <%= @quotation.quo_condition %></p>
+
+<!--
+<%= link_to 'Back', @customer %>
+-->
+<!-- Description -->
+<%= render :partial => "quotadescrips/quotadescrip" %>
+
+<!--
+<h2>Add a description</h2>
+<%= render "quotadescrips/form"%>
+-->
+
+<br />
+<%= link_to 'Back', quotations_path %>

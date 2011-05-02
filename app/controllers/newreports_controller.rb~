@@ -1,0 +1,5 @@
+class NewreportsController < ApplicationController
+  def index
+  end
+
+end

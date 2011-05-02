@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cust_name: MyString
+  cust_address: MyText
+
+two:
+  cust_name: MyString
+  cust_address: MyText

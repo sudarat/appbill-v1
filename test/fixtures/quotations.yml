@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quo_title: MyString
+  quo_detail: MyText
+  quo_terms: 1
+  quo_condition: MyText
+  customer: 
+
+two:
+  quo_title: MyString
+  quo_detail: MyText
+  quo_terms: 1
+  quo_condition: MyText
+  customer: 

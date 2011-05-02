@@ -1,0 +1,20 @@
+<h1>ข้อมูลโปรเจค</h1>
+<p id="notice"><%= notice %></p>
+
+
+  <p>Project title : <%= @invoice.inv_title %></p>
+
+
+<!--
+<%= link_to 'Back', @customer %>
+-->
+<!-- Description -->
+<%= render :partial => "invoicedescrips/invoicedescrip" %>
+
+<!--
+<h2>Add a description</h2>
+<%= render "quotadescrips/form"%>
+-->
+
+<br />
+<%= link_to 'Back', invoices_path %>

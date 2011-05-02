@@ -1,0 +1,2 @@
+module QuotadescripsHelper
+end
