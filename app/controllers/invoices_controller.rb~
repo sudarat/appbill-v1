@@ -1,5 +1,4 @@
 class InvoicesController < ApplicationController
-  layout "print", :only => [:index]
   
   def index
     @invoices = Invoice.all
@@ -34,7 +33,7 @@ class InvoicesController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.xml  { render :xml => @invoice }
     end
   end
     

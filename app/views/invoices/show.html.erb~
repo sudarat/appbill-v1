@@ -17,5 +17,6 @@
 -->
 
 <br />
-<%= link_to 'Print view',print_invoice_path(@invoice) %>
+<!-- :target => '_blank' -->
+<%= link_to 'Print view',print_customer_invoice_path(@customer,@invoice),  :popup => true %>
 <%= link_to 'Back', invoices_path %>

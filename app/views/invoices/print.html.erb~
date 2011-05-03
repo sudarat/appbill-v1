@@ -1,5 +1,4 @@
-
-<table border="1" width="100%" height="100%">
+<table width="100%" height="100%">
 <THEAD>
   <tr>
     <td valign="top">logo</td> <td valign="top">ที่อยุ่</td> <td valign="top">contact</td>
@@ -12,10 +11,10 @@
   <table border ="1" width ="100%">
     <tr><td>Description</td> <td>Quantity</td> <td>Unit Price</td> <td>Cost</td></tr>
     <%= raw(@invoice.details_html) %>
+    
 
-
-    <tr><td colspan=2></td> <td>Sub</td> <td>0</td></tr>
-    <tr><td colspan=2></td> <td>Tax 7.00%</td> <td>0</td></tr>
+    <tr><td colspan=2></td> <td>Sub</td> <td><%= (@invoice.subtotal_html) %></td></tr>
+    <tr><td colspan=2></td> <td>Tax 7.00%</td> <td><%= (@invoice.tax_html) %></td></tr>
     <tr><td colspan=2></td> <td>total</td> <td>3</td> </tr>
   </table></td>
   </tr>

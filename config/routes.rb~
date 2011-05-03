@@ -10,9 +10,10 @@ Codeapp1::Application.routes.draw do
   
   resources :customers do
     resources :invoices do
-      resources :invoicedescrips
+      resources :invoicedescrips do
       member do
 	get 'print'
+      end
       end
     end
   end
@@ -28,10 +29,7 @@ Codeapp1::Application.routes.draw do
   resources :quotations
   resources :quotadescrips
   
-  resources :invoices do
-      
-  end
-  
+  resources :invoices 
   resources :invoicedescrips
 
   get "home/index"

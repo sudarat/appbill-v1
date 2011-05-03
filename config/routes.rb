@@ -11,8 +11,8 @@ Codeapp1::Application.routes.draw do
   resources :customers do
     resources :invoices do
       resources :invoicedescrips
-      member do
-	get 'print'
+	member do
+	  get 'print'
       end
     end
   end
