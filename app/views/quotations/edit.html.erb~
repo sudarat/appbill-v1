@@ -1,24 +1,46 @@
 <h1>แก้ไขโปรเจค</h1>
+<% flash .each do |key, value| %>
+  <% if value ==  "Description Error." %>
+  <%= content_tag(:div, value, :class => "descrip") %>
+  <% else %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+  <% end %>
+<% end %>
+
 <%= form_for([@customer, @quotation]) do |q| %>
+
+  <% if @quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <br />
+      <% @quotation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= q.label :customer_id , 'Customer id'%><br />
     <%= q.text_field :customer_id %>
   </div>
   <div class="field">
-    <%= q.label :quo_title , 'Project title'%><br />
-    <%= q.text_field :quo_title %>
+    <%= q.label :title , 'Project title'%><br />
+    <%= q.text_field :title %>
   </div>
   <div class="field">
-    <%= q.label :quo_detail %><br />
-    <%= q.text_field :quo_detail %>
+    <%= q.label :detail %><br />
+    <%= q.text_field :detail %>
   </div>
   <div class="field">
-    <%= q.label :quo_terms %><br />
-    <%= q.text_field :quo_terms %>
+    <%= q.label :terms %><br />
+    <%= q.text_field :terms %>
   </div>
   <div class="field">
-    <%= q.label :quo_condition %><br />
-    <%= q.text_field :quo_condition %>
+    <%= q.label :condition %><br />
+    <%= q.text_field :condition %>
   </div>
 
   <div class = "actions">
@@ -26,7 +48,11 @@
   </div>
 <% end %>
 
-<h2>Add a description</h2>
+
+<h2>Description</h2>
+<%= render :partial => "quotadescrips/quotadescrip" %>
+
+<!-- <h2>Add a description</h2> -->
 <%= render "quotadescrips/form"%>
 
 

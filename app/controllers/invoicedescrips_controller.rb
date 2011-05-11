@@ -1,8 +1,9 @@
 class InvoicedescripsController < ApplicationController
-   def show
+  
+  def show
     @customer = Customer.find(params[:customer_id])
     @invoice = Invoice.find(params[:invoice_id])
-    @invoicedescrip = @invoicetion.invoicedescrips.find(params[:id])
+    @invoicedescrip = @invoice.invoicedescrips.find(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -15,7 +16,13 @@ class InvoicedescripsController < ApplicationController
     @invoice = Invoice.find(params[:invoice_id])
     @invoicedescrip = @invoice.invoicedescrips.create(params[:invoicedescrip])
     
-    redirect_to customer_invoice_path(@customer,@invoice)
+    respond_to do |format|
+      if @invoicedescrip.save
+        format.html {redirect_to edit_customer_invoice_path(@customer,@invoice), :notice => 'Description was successfully created.'}
+      else
+        format.html { redirect_to edit_customer_invoice_path(@customer,@invoice), :notice => 'Description Error.'}
+      end
+    end
   end
   
   def edit
@@ -29,11 +36,10 @@ class InvoicedescripsController < ApplicationController
     @invoice = Invoice.find(params[:invoice_id])
     @invoicedescrip = @invoice.invoicedescrips.find(params[:id])
     if @invoicedescrip.update_attributes(params[:invoicedescrip])
-      redirect_to customer_invoice_path(@customer,@invoice)
+      redirect_to edit_customer_invoice_path(@customer,@invoice), :notice => 'Description was successfully updated.'
     else
-      render :action => "edit"
+      redirect_to edit_customer_invoice_invoicedescrip_path(@customer,@invoice,@invoicedescrip), :notice => 'Description Error.'
     end
-      
   end
   
   def destroy
@@ -41,8 +47,9 @@ class InvoicedescripsController < ApplicationController
     @invoice = Invoice.find(params[:invoice_id])
     @invoicedescrip = @invoice.invoicedescrips.find(params[:id])
     @invoicedescrip.destroy
-    
- 
-    redirect_to customer_invoice_path(@customer,@invoice)
+     
+    respond_to do |format|
+        format.html {redirect_to edit_customer_invoice_path(@customer,@invoice), :notice => 'Description delete.'}    
+    end
   end
 end

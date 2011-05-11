@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110501200518) do
+ActiveRecord::Schema.define(:version => 20110504181644) do
+
+  create_table "billdescrips", :force => true do |t|
+    t.string   "billd_descrip"
+    t.integer  "billd_quantity"
+    t.integer  "billd_unitprice"
+    t.integer  "bill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bills", :force => true do |t|
+    t.string   "bill_title"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "cust_name"

@@ -1,8 +1,9 @@
-<h1>ข้อมูลโปรเจค</h1>
-<p id="notice"><%= notice %></p>
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
 
-
-  <p>Project title : <%= @invoice.inv_title %></p>
+<h1 align = center>ใบแจ้งหนี้</h1>
+  <p>Project title : <%= @invoice.title %></p>
 
 
 <!--
@@ -20,3 +21,4 @@
 <!-- :target => '_blank' -->
 <%= link_to 'Print view',print_customer_invoice_path(@customer,@invoice), :target => '_blank' %>
 <%= link_to 'Back', invoices_path %>
+<%= link_to edit, edit_customer_invoice_path(@invoice.customer, @invoice) %>

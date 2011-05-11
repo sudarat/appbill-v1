@@ -1,0 +1,60 @@
+<table width="100%" height="100%" border = "0" align =center>
+<THEAD>
+  <tr>
+    <td valign="top" width="31.5%" height="100px" ><%= image_tag("codeapp.jpeg")%><br /><font size = 1>&nbsp;&nbsp;&nbsp;&nbsp;Code App Co., LTD</td> 
+    <td valign="top" width="33%" height="100px"><font size=2>บริษัท โค้ดแอพพ์ จำกัด <br />เลขที่ 97/9 หมู่ 9 โฮมเพลส สตอรี่ส์2 <br />ถ.บางกรวย-ไทรน้อย ต.บางเลน<br /> อ.บางใหญ่ จ.นนทบุรี 11140 </font></td>
+    <td valign="top" width="35.5%" height="100px"><font size=2>โทร: 081-8576198 (มือถือ)<br />Fax: 02-921-5829</br >e-mail: rawitatpulam@gmail.com</font></td>
+  </tr>
+</THEAD>
+<TBODY>
+  <tr><td colspan=3 align="center" valign="bottom" height="90px"><h2>ใบเสร็จรับเงิน</h2></td></tr>
+  <tr><td colspan=3 valign="top"><p><font size=2>PROJECT TITLE : <%= @bill.title %></p></font></td></tr>
+  <tr><td colspan=3 valign="top">
+    <table border=0 width ="100%" class="tdesc ">
+    <tr align="center" class="bgdesc borderbottom">
+      <td class="borderright"><font size=2><b>Description</b></td> 
+      <td class="borderright"><font size=2><b>Quantity</b></td> 
+      <td class="borderright"><font size=2><b>Unit Price</b></td> 
+      <td><font size=2><b>Cost</b></td></tr>
+    <font size=2><%= raw(@bill.details_html) %></font>
+    </tr>
+
+    <tr>
+      <td colspan=2 class="bordertop"></td> 
+      <td class="bordertop borderright" align="center"><font size = 2>Subtotal</font></td> 
+      <td align= right class="bordertop"><font size = 2><%= @bill.subtotal_html %></font></td>
+    </tr>
+
+    <tr>
+      <td colspan=2 class="bordertop"></td> 
+      <td class="bordertop borderright" align="center"><font size = 2>Tax 7.00%</font></td> 
+      <td align= right bgcolor="#FFFFFF" class="bordertop"><font size = 2><%= @bill.tax_html %></td>
+    </tr>
+
+    <tr >
+      <td colspan=2 class="bgdesc bordertop"></td>
+      <td class="borderright bgdesc bordertop" align="center"><font size=2><b>Total</b></font></td> 
+      <td align= right class="bgdesc bordertop"><font size=2><b><%= @bill.total_html %></b></td> 
+    </tr>
+  </table>
+  </td></tr>
+</TBODY>
+
+<TFOOT>
+  <tr><td colspan=3 valign="bottom">
+    <table width="100%" align="center" class="tdesc">
+
+      <tr valign=top align=center >
+	<td width = "50%" class="bordertop borderright borderbottom"><font size = 3><b>ลูกค้า</b></font></td> 
+	<td class="bordertop borderbottom"><font size = 3><b>ผู้เสนอราคา</b></font></td>
+      </tr>
+      <tr align = center>
+	<td class="borderbottom borderright" valign="bottom"><font size = 2>วันที่  ..../..../........</font></td> 
+	<td class="borderbottom" ><font size = 2>ขอแสดงความนับถือ<br /><br /><br /><br /><br /><br />นายรวิทัต  ภู่หลำ</font><br /><font size=1.5>Chief Software Architect & Usability Consultant<br /><font size=2>วันที่ <%= Time.now.day%>/<%= Time.now.month%>/<%= Time.now.year+543 %></font></td>
+      </tr>
+    </table>
+  </td>
+</font>
+</TFOOT>
+
+<!-- <%= link_to "Download (PDF)",print_customer_bill_path(@customer,@bill,:format => "pdf") %> -->

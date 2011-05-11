@@ -1,11 +1,12 @@
-<h1>ใบเสนอราคา</h1>
-<% if notice != "" %>
-<p id="notice"><%= notice %></p>
+<h1 align = center>ใบเสนอราคา</h1>
+
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
 <% end %>
 
 <table>
   <tr>
-    <th>quota-id</th>
+    <th>invoice-id</th>
     <th></th>
     <th>ชื่อลูกค้า</th>
     <th></th>
@@ -18,13 +19,13 @@
   <tr>
     <td><%= q.id%>-<%= (q.created_at.year)+543 %></td>
     <td></td>
-    <td><%= q.customer.cust_name%></td>
+    <td><%= q.customer.name%></td>
     <td></td>
-    <td><%= q.quo_title %></td>
+    <td><%= q.title %></td>
     <td></td>
-    <td><%= link_to 'แสดงรายละเอียด', ([q.customer, q]) %></td>
-    <td><%= link_to 'แก้ไขใบเสนอราคา', edit_customer_quotation_path(q.customer, q) %></td>
-    <td><%= link_to 'ลบโปรเจค' , [q.customer , q ], 
+    <td><%= link_to show, ([q.customer, q]) %>|
+    <%= link_to edit, edit_customer_quotation_path(q.customer, q) %>|
+    <%= link_to delete, [q.customer , q ], 
 	      :confirm => "Are you sure?" ,
 	      :method => :delete %></td>
   </tr>

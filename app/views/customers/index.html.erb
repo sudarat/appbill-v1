@@ -1,4 +1,8 @@
-<h1>ข้อมูลลูกค้า</h1>
+<h1><center>ข้อมูลลูกค้า</center></h1>
+
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
 
 <table>
   <tr>
@@ -11,16 +15,18 @@
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.cust_name %></td>
+    <td><%= customer.name %></td>
     <td></td>
-    <td><%= customer.cust_address %></td>
+    <td><%= customer.address %></td>
     <!-- <td><%= link_to 'เลือก', customer %></td> -->
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td align="right">
+      <%= link_to edit, edit_customer_path(customer) %>|
+      <%= link_to delete, customer, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'เพิ่มลูกค้า', new_customer_path %>

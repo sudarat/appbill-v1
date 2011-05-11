@@ -85,7 +85,7 @@ class CustomersController < ApplicationController
     @customer.destroy
 
     respond_to do |format|
-      format.html { redirect_to(customers_url) }
+      format.html { redirect_to(customers_url,:notice => 'Customer delete.')}
       format.xml  { head :ok }
     end
   end

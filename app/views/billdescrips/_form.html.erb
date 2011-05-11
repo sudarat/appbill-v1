@@ -1,0 +1,17 @@
+<head>
+<script> 
+function clearText(thefield){
+ if (thefield.defaultValue==thefield.value)
+ thefield.value = ""
+ } 
+ </script>
+</head>
+
+<%= form_for ([@customer,@bill,@bill.billdescrips.build]) do |billd| %>
+  <div class = "field">
+    <%= billd.text_field :description ,:size => "37",:value=>"Description", :onFocus=>"clearText(this)"%>&nbsp;&nbsp;&nbsp;
+    <%= billd.text_field :quantity ,:size => "7" ,:value=>"Quantity", :onFocus=>"clearText(this)"%>&nbsp;&nbsp;&nbsp;
+    <%= billd.text_field :unit_price ,:size => "7" ,:value=>"Unit price", :onFocus=>"clearText(this)" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= billd.submit "create",:class => "submit"%>
+  </div>
+<% end %>

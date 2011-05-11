@@ -5,12 +5,24 @@ Codeapp1::Application.routes.draw do
   resources :customers do
     resources :quotations do 
       resources :quotadescrips
+      member do
+	  get 'print'
+      end
     end
   end
   
   resources :customers do
     resources :invoices do
       resources :invoicedescrips
+	member do
+	  get 'print'
+      end
+    end
+  end
+  
+  resources :customers do
+    resources :bills do
+      resources :billdescrips
 	member do
 	  get 'print'
       end
@@ -25,11 +37,18 @@ Codeapp1::Application.routes.draw do
     resources :invoicedescrips
   end
   
+  resources :bills do 
+    resources :billdescrips
+  end
+  
   resources :quotations
   resources :quotadescrips
   
   resources :invoices 
   resources :invoicedescrips
+  
+  resources :bills
+  resources :billdescrips
 
   get "home/index"
   

@@ -38,5 +38,7 @@ module Codeapp1
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    #PDFKit
+     config.middleware.use "PDFKit::Middleware" #, :print_media_type => true    
   end
 end

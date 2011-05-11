@@ -1,11 +1,12 @@
-<h1>ข้อมูลโปรเจค</h1>
-<p id="notice"><%= notice %></p>
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
 
-
-  <p>Project title : <%= @quotation.quo_title %></p>
-  <p>Detail : <%= @quotation.quo_detail %></p>
-  <p>Terms : <%= @quotation.quo_terms %> Days</p>
-  <p>condition : <%= @quotation.quo_condition %></p>
+<h1 align = center>ใบเสนอราคา</h1>
+  <p>Project title : <%= @quotation.title %></p>
+  <p>Detail : <%= @quotation.detail %></p>
+  <p>Terms : <%= @quotation.terms %> Days</p>
+  
 
 <!--
 <%= link_to 'Back', @customer %>
@@ -13,10 +14,13 @@
 <!-- Description -->
 <%= render :partial => "quotadescrips/quotadescrip" %>
 
-<!--
-<h2>Add a description</h2>
-<%= render "quotadescrips/form"%>
--->
+  <% if (@quotation.condition != "")%>
+  <p>condition : <%= @quotation.condition %></p>
+  <% end %>
+
+
 
 <br />
+<%= link_to 'Print view', print_customer_quotation_path(@customer,@quotation), :target => '_blank' %>
 <%= link_to 'Back', quotations_path %>
+<%= link_to edit, edit_customer_quotation_path(@quotation.customer, @quotation) %>

@@ -12,14 +12,22 @@ class InvoicesController < ApplicationController
   def create
     @customer  = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.create(params[:invoice])
-    redirect_to customer_invoice_path(@customer,@invoice)
+    
+    respond_to do |format|
+      if @invoice.save
+        format.html {redirect_to customer_invoice_path(@customer,@invoice), :notice => 'invoice was successfully created.'}
+      else
+        format.html { render :action => "new" }
+        
+      end
+    end
   end
   
   def destroy
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.find(params[:id])
     @invoice.destroy
-    redirect_to invoices_path
+    redirect_to invoices_path,:notice => 'Invoice delete.'
   end
   
   def edit
@@ -42,15 +50,13 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     
     if @invoice.update_attributes(params[:invoice])
-      #redirect_to(customer_quotation_path, :notice => 'Quotation was successfully updated.')
-      redirect_to(invoices_path, :notice => 'Invoice was successfully updated.')
+      redirect_to(invoices_path, :notice => 'invoice was successfully updated.')
     else
       render :action => "edit"
     end      
   end
   
   def print
-    
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.find(params[:id])
     render :layout => 'print'

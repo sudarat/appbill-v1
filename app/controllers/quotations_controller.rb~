@@ -12,14 +12,22 @@ class QuotationsController < ApplicationController
   def create
     @customer  = Customer.find(params[:customer_id])
     @quotation = @customer.quotations.create(params[:quotation])
-    redirect_to customer_path(@customer)
+    
+    respond_to do |format|
+      if @quotation.save
+        format.html {redirect_to customer_quotation_path(@customer,@quotation), :notice => 'quotation was successfully created.'}
+      else
+        format.html { render :action => "new" }
+        
+      end
+    end
   end
   
   def destroy
     @customer = Customer.find(params[:customer_id])
     @quotation = @customer.quotations.find(params[:id])
     @quotation.destroy
-    redirect_to quotations_path
+    redirect_to quotations_path,:notice => 'quotation delete.'
   end
   
   def edit
@@ -42,11 +50,17 @@ class QuotationsController < ApplicationController
     @quotation = Quotation.find(params[:id])
     
     if @quotation.update_attributes(params[:quotation])
-      #redirect_to(customer_quotation_path, :notice => 'Quotation was successfully updated.')
       redirect_to(quotations_path, :notice => 'Quotation was successfully updated.')
     else
       render :action => "edit"
     end      
+  end
+  
+  def print
+    @customer = Customer.find(params[:customer_id])
+    @quotation = @customer.quotations.find(params[:id])
+    render :layout => 'print'
+    
   end
   
 end

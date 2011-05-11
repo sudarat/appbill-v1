@@ -1,17 +1,18 @@
+<head>
+<script> 
+function clearText(thefield){
+ if (thefield.defaultValue==thefield.value)
+ thefield.value = ""
+ } 
+ </script>
+</head>
+
 <%= form_for ([@customer,@invoice,@invoice.invoicedescrips.build]) do |ides| %>
+
   <div class = "field">
-    <%= ides.label :ind_descrip %><br />
-    <%= ides.text_field :ind_descrip %>
-  </div>
-  <div class = "field">
-    <%= ides.label :ind_quantity %><br />
-    <%= ides.text_field :ind_quantity %>
-  </div>
-  <div class = "field">
-    <%= ides.label :ind_unitprice %><br />
-    <%= ides.text_field :ind_unitprice %>
-  </div>
-  <div class = "submit">
-    <%= ides.submit %>
+    <%= qdes.text_field :description ,:size => "37",:value=>"Description", :onFocus=>"clearText(this)"%>&nbsp;&nbsp;&nbsp;
+    <%= qdes.text_field :quantity ,:size => "7" ,:value=>"Quantity", :onFocus=>"clearText(this)"%>&nbsp;&nbsp;&nbsp;
+    <%= qdes.text_field :unit_price ,:size => "7" ,:value=>"Unit price", :onFocus=>"clearText(this)" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= qdes.submit "create",:class => "submit"%>
   </div>
 <% end %>

@@ -1,0 +1,5 @@
+class Invoicedescrip < ActiveRecord::Base
+  belongs_to :invoice
+  
+  validates_presence_of :description,:quantity,:unit_price
+end

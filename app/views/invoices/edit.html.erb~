@@ -1,12 +1,36 @@
 <h1>แก้ไขโปรเจค</h1>
+
+<% flash .each do |key, value| %>
+  <% if value ==  "Description Error." %>
+  <%= content_tag(:div, value, :class => "descrip") %>
+  <% else %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+  <% end %>
+<% end %>
+
 <%= form_for([@customer, @invoice]) do |i| %>
+
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <br />
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= i.label :customer_id , 'Customer id'%><br />
     <%= i.text_field :customer_id %>
   </div>
+
   <div class="field">
-    <%= i.label :ind_title , 'Project title'%><br />
-    <%= i.text_field :ind_title %>
+    <%= i.label :title , 'Project title'%><br />
+    <%= i.text_field :title %>
   </div>
 
   <div class = "actions">
@@ -18,7 +42,6 @@
 <h2>Description</h2>
 <%= render :partial => "invoicedescrips/invoicedescrip" %>
 
-<h2>Add a description</h2>
 <%= render "invoicedescrips/form"%>
 
 

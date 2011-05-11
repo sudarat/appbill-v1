@@ -1,25 +1,25 @@
 <table>
   <tr>
-    <th>Description</th>
+    <th width="350"><center>Description</center></th>
     <th></th>
-    <th>Quntity</th>
+    <th width="25"><center>Quntity</center></th>
     <th></th>
-    <th>Unit Price</th>
+    <th width="100"><center>Unit Price</center></th>
     <th></th>
-    <th></th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
   </tr>
 
 <% @quotation.quotadescrips.each do |quotadescrip| %> 
 <tr>
-  <td><%= quotadescrip.qd_descrip %></td>
+  <td width="350"><%= quotadescrip.description %></td>
   <td></td>
-  <td><%= quotadescrip.qd_quantity %></td>
+  <td width="25"><center><%= quotadescrip.quantity %></center></td>
   <td></td>
-  <td><%= quotadescrip.qd_unitprice %></td>
+  <td width="100"><center><%= quotadescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip]) %> -->
-     <%= link_to 'edit', edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip) %>
-     <%= link_to 'Destroy Description',[quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip],
+     <%= link_to editdesc, edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip) %>
+     <%= link_to deletedesc,[quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip],
 		 :confirm => "Are you sure?",
 		 :method => :delete %></td>
 <% end %>

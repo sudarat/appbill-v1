@@ -1,0 +1,33 @@
+<h1 align = center>ใบเสร็จรับเงิน</h1>
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
+
+
+<table>
+  <tr>
+    <th>bill-id</th>
+    <th></th>
+    <th>ชื่อลูกค้า</th>
+    <th></th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bills.each do |b| %>
+  <tr>
+    <td><%= b.id%>-<%= (b.created_at.year)+543 %></td>
+    <td></td>
+    <td><%= b.customer.name%></td>
+    <td></td>
+    <td><%= b.title %></td>
+    <td></td>
+    <td><%= link_to show, ([b.customer, b]) %>|
+	<%= link_to edit, edit_customer_bill_path(b.customer, b) %>|
+	<%= link_to delete, [b.customer , b ], 
+	      :confirm => "Are you sure?" ,
+	      :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

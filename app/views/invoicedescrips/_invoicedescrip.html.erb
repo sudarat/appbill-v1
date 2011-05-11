@@ -1,25 +1,25 @@
 <table>
   <tr>
-    <th>Description</th>
+    <th width="350"><center>Description</center></th>
     <th></th>
-    <th>Quntity</th>
+    <th width="25"><center>Quntity</center></th>
     <th></th>
-    <th>Unit Price</th>
+    <th width="100"><center>Unit Price</center></th>
     <th></th>
-    <th></th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
   </tr>
 
 <% @invoice.invoicedescrips.each do |invoicedescrip| %> 
 <tr>
-  <td><%= invoicedescrip.ind_descrip %></td>
+  <td width="350"><%= invoicedescrip.description %></td>
   <td></td>
-  <td><%= invoicedescrip.ind_quantity %></td>
+  <td width="25"><center><%= invoicedescrip.quantity %></center></td>
   <td></td>
-  <td><%= invoicedescrip.ind_unitprice %></td>
+  <td width="100"><center><%= invoicedescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip]) %> -->
-     <%= link_to 'edit', edit_customer_invoice_invoicedescrip_path(invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip) %>
-     <%= link_to 'Destroy Description',[invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip],
+     <%= link_to edit, edit_customer_invoice_invoicedescrip_path(invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip) %>
+     <%= link_to delete,[invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip],
 		 :confirm => "Are you sure?",
 		 :method => :delete %></td>
 <% end %>

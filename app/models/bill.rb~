@@ -1,0 +1,56 @@
+class Bill < ActiveRecord::Base
+  belongs_to :customer
+  has_many :billdescrips
+  
+  validates_presence_of :title
+  
+  def details_html
+    html = ""
+    
+    billdescrips.each do |detail|
+	html += "<tr valign= top >
+		  <td class=bordertop borderright><font size = 2>#{detail.billd_descrip}</font></td> 
+		  <td class=borderdetail><font size = 2>#{detail.billd_quantity}</font></td> 
+		  <td align= right class=borderdetail><font size = 2>#{detail.billd_unitprice}</font></td> 
+		  <td align=right class=bordertop><font size=2>#{detail.billd_unitprice*detail.billd_quantity}</font></td>
+		 </tr>"
+    end
+    
+    return html
+  end
+  
+   def subtotal_html
+    subtotal = 0
+    
+    billdescrips.each do |detail|
+	subtotal += detail.billd_unitprice*detail.billd_quantity
+    end
+    
+    return subtotal
+  end
+  
+  def tax_html
+    tax = 0
+    
+    billdescrips.each do |detail|
+	tax += detail.billd_unitprice*detail.billd_quantity
+    end
+    
+    tax = (tax * 7)/100
+    
+    return tax
+  end
+  
+  def total_html
+    total = 0
+    
+    billdescrips.each do |detail|
+	total += detail.billd_unitprice*detail.billd_quantity
+    end
+    
+    total = total + ((total * 7)/100)
+    
+    return total
+  end
+  
+end

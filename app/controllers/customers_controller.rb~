@@ -9,6 +9,15 @@ class CustomersController < ApplicationController
       format.xml  { render :xml => @customers }
     end
   end
+  
+  def newreport
+     @customers = Customer.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @customers }
+    end
+  end
 
   # GET /customers/1
   # GET /customers/1.xml
@@ -76,7 +85,7 @@ class CustomersController < ApplicationController
     @customer.destroy
 
     respond_to do |format|
-      format.html { redirect_to(customers_url) }
+      format.html { redirect_to(customers_url),:notice => 'Customer delete.'}
       format.xml  { head :ok }
     end
   end

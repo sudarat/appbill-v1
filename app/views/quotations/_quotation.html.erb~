@@ -1,8 +1,4 @@
-  <p>Project title : <%= quotation.quo_title %></p>
-  <p>Detail : <%= quotation.quo_detail %></p>
-  <p>Terms : <%= quotation.quo_terms %> Days</p>
-  <p>condition : <%= quotation.quo_condition %></p>
-  
+  <p>Project title : <%= quotation.title %></p>  
   <p> 
       <%= link_to 'แสดงรายละเอียด', ([quotation.customer, quotation]) %>
       <%= link_to 'แก้ไขโปรเจค', edit_customer_quotation_path(quotation.customer, quotation) %>

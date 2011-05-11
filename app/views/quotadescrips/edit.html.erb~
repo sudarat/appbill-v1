@@ -1,17 +1,24 @@
 <h1>Edit description</h1>
+<% flash .each do |key, value| %>
+  <% if value ==  "Description Error." %>
+  <%= content_tag(:div, value, :class => "descrip") %>
+  <% else %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+  <% end %>
+<% end %>
 
-<%= form_for([@quotation, @quotadescrip]) do |qd|  %>
+<%= form_for([@customer,@quotation, @quotadescrip]) do |qd|  %>
   <div class="field">
-    <%= qd.label :qd_descrip %><br /> 
-    <%= qd.text_field :qd_descrip %>
+    <%= qd.label :description %><br /> 
+    <%= qd.text_field :description %>
   </div>
   <div class="field">
-    <%= qd.label :qd_quantity %><br /> 
-    <%= qd.text_field :qd_quantity %>
+    <%= qd.label :quantity %><br /> 
+    <%= qd.text_field :quantity %>
   </div>
   <div class="field">
-    <%= qd.label :qd_unitprice %><br /> 
-    <%= qd.text_field :qd_unitprice %>
+    <%= qd.label :unit_price %><br /> 
+    <%= qd.text_field :unit_price %>
   </div>
 
 

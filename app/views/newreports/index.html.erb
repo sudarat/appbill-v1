@@ -11,11 +11,11 @@
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.cust_name %></td>
+    <td><%= customer.name %></td>
     <td></td>
-    <td><%= customer.cust_address %></td>
-    <td><%= link_to 'เลือก', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= customer.address %></td>
+    <td><%= link_to ok, customer %>|
+	<%= link_to edit, edit_customer_path(customer) %></td>
     <!-- <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td> -->
   </tr>
 <% end %>

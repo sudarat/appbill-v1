@@ -1,0 +1,36 @@
+<%= form_for([@customer, @customer.quotations.build]) do |q| %>
+
+  <% if @quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <br />
+      <% @quotation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= q.label :title , 'Project title'%><br />
+    <%= q.text_field :title %>
+  </div>
+  <div class="field">
+    <%= q.label :detail %><br />
+    <%= q.text_field :detail %>
+  </div>
+  <div class="field">
+    <%= q.label :terms %><br />
+    <%= q.text_field :terms %>
+  </div>
+  <div class="field">
+    <%= q.label :condition %><br />
+    <%= q.text_field :condition %>
+  </div>
+
+  <div class = "actions">
+    <%= q.submit %>
+  </div>
+<% end %>

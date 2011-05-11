@@ -1,6 +1,6 @@
-<h1>ใบเสนอราคา</h1>
+<h1 align = center>ใบส่งของ/ใบแจ้งหนี้</h1>
 <% if notice != "" %>
-<p id="notice"><%= notice %></p>
+<p id="notice" class="notice"><%= notice %></p>
 <% end %>
 
 <table>
@@ -18,13 +18,13 @@
   <tr>
     <td><%= i.id%>-<%= (i.created_at.year)+543 %></td>
     <td></td>
-    <td><%= i.customer.cust_name%></td>
+    <td><%= i.customer.name%></td>
     <td></td>
-    <td><%= i.inv_title %></td>
+    <td><%= i.title %></td>
     <td></td>
-    <td><%= link_to 'แสดงรายละเอียด', ([i.customer, i]) %></td>
-    <td><%= link_to 'แก้ไขใบเสนอราคา', edit_customer_invoice_path(i.customer, i) %></td>
-    <td><%= link_to 'ลบโปรเจค' , [i.customer , i ], 
+    <td ><%= link_to show, ([i.customer, i]) %>|
+	<%= link_to edit, edit_customer_invoice_path(i.customer, i) %>|
+	<%= link_to delete, [i.customer , i ], 
 	      :confirm => "Are you sure?" ,
 	      :method => :delete %></td>
   </tr>

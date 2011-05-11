@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  billd_descrip: MyString
+  billd_quantity: 1
+  billd_unitprice: 1
+  bill: 
+
+two:
+  billd_descrip: MyString
+  billd_quantity: 1
+  billd_unitprice: 1
+  bill: 

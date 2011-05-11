@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th width="350"><center>Description</center></th>
+    <th></th>
+    <th width="25"><center>Quntity</center></th>
+    <th></th>
+    <th width="100"><center>Unit Price</center></th>
+    <th></th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+
+<% @bill.billdescrips.each do |billdescrip| %> 
+<tr>
+  <td width="350"><%= billdescrip.description %></td>
+  <td></td>
+  <td width="25"><center><%= billdescrip.quantity %></center></td>
+  <td></td>
+  <td width="100"><center><%= billdescrip.unit_price %></center></td>
+  <td></td>
+  <td><!-- <%= link_to 'show',([billdescrip.bill.customer,billdescrip.bill,billdescrip]) %> -->
+     <%= link_to edit, edit_customer_bill_billdescrip_path(billdescrip.bill.customer,billdescrip.bill,billdescrip) %>
+     <%= link_to delete,[billdescrip.bill.customer,billdescrip.bill,billdescrip],
+		 :confirm => "Are you sure?",
+		 :method => :delete %></td>
+<% end %>
+</tr>
+
+</table>
