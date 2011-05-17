@@ -1,13 +1,14 @@
-<h1 align = center>ใบส่งของ/ใบแจ้งหนี้</h1>
-<% if notice != "" %>
-<p id="notice" class="notice"><%= notice %></p>
+<h1 align = center>Invoices</h1>
+
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
 <% end %>
 
 <table>
   <tr>
-    <th>invoice-id</th>
+    <th>Invoice-ID</th>
     <th></th>
-    <th>ชื่อลูกค้า</th>
+    <th>Customer</th>
     <th></th>
     <th>Project</th>
     <th></th>
@@ -22,11 +23,12 @@
     <td></td>
     <td><%= i.title %></td>
     <td></td>
-    <td ><%= link_to show, ([i.customer, i]) %>|
-	<%= link_to edit, edit_customer_invoice_path(i.customer, i) %>|
-	<%= link_to delete, [i.customer , i ], 
-	      :confirm => "Are you sure?" ,
-	      :method => :delete %></td>
+    <td><%= link_to delete, [i.customer , i ],:format => "html",:confirm => "Are you sure?" ,:method => :delete , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to edit, edit_customer_invoice_path(i.customer, i),:format => "html" , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to show, ([i.customer, i]),:format => "html" , :class => "right"%>
+    </td>
   </tr>
 <% end %>
 </table>

@@ -15,7 +15,7 @@ class InvoicesController < ApplicationController
     
     respond_to do |format|
       if @invoice.save
-        format.html {redirect_to customer_invoice_path(@customer,@invoice), :notice => 'invoice was successfully created.'}
+        format.html {redirect_to newinvoice_customer_invoice_path(@customer,@invoice), :notice => 'invoice was successfully created.'}
       else
         format.html { render :action => "new" }
         
@@ -60,6 +60,16 @@ class InvoicesController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.find(params[:id])
     render :layout => 'print'
+  end
+  
+  def newinvoice
+    @customer = Customer.find(params[:customer_id])
+    @invoice = @customer.invoices.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @project }
+    end
   end
 
 end

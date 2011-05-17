@@ -1,4 +1,5 @@
-<h1 align = center>ใบเสนอราคา</h1>
+<h1 align = center>Quotations</h1>
+<!-- <%= link_to 'New quotation', newreports_path,:class => "right"%> -->
 
 <% flash .each do |key, value| %>
   <%= content_tag(:div, value, :class => "flash #{key}") %> 
@@ -6,11 +7,11 @@
 
 <table>
   <tr>
-    <th>invoice-id</th>
+    <th width=50px>Invoice-ID</th>
     <th></th>
-    <th>ชื่อลูกค้า</th>
+    <th width=100px>Customer</th>
     <th></th>
-    <th>Project</th>
+    <th width=250px>Quotation</th>
     <th></th>
     <th></th>
   </tr>
@@ -23,11 +24,12 @@
     <td></td>
     <td><%= q.title %></td>
     <td></td>
-    <td><%= link_to show, ([q.customer, q]) %>|
-    <%= link_to edit, edit_customer_quotation_path(q.customer, q) %>|
-    <%= link_to delete, [q.customer , q ], 
-	      :confirm => "Are you sure?" ,
-	      :method => :delete %></td>
+    <td><%= link_to delete, [q.customer , q ],:format => "html",:confirm => "Are you sure?" ,:method => :delete , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to edit, edit_customer_quotation_path(q.customer, q,:format => "html") , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to show, ([q.customer, q]),:format => "html" , :class => "right"%>
+    </td>
   </tr>
 <% end %>
 </table>

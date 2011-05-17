@@ -11,11 +11,11 @@
 
 <% @quotation.quotadescrips.each do |quotadescrip| %> 
 <tr>
-  <td width="350"><%= quotadescrip.qd_descrip %></td>
+  <td width="350"><%= quotadescrip.description %></td>
   <td></td>
-  <td width="25"><center><%= quotadescrip.qd_quantity %></center></td>
+  <td width="25"><center><%= quotadescrip.quantity %></center></td>
   <td></td>
-  <td width="100"><center><%= quotadescrip.qd_unitprice %></center></td>
+  <td width="100"><center><%= quotadescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip]) %> -->
      <%= link_to editdesc, edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip) %>

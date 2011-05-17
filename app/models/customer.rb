@@ -1,8 +1,8 @@
 class Customer < ActiveRecord::Base
   
-  has_many :quotations
-  has_many :invoices
-  has_many :bills
+  has_many :quotations, :dependent => :destroy
+  has_many :invoices ,:dependent => :destroy
+  has_many :bills ,:dependent => :destroy
   
   validates_presence_of :name,:address
   

@@ -1,6 +1,6 @@
 class Bill < ActiveRecord::Base
   belongs_to :customer
-  has_many :billdescrips
+  has_many :billdescrips ,:dependent => :destroy
   
   validates_presence_of :title
   

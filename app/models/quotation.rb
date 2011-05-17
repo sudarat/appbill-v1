@@ -1,6 +1,6 @@
 class Quotation < ActiveRecord::Base
   belongs_to :customer
-  has_many :quotadescrips
+  has_many :quotadescrips ,:dependent => :destroy
   
   validates_presence_of :title,:detail,:terms
   

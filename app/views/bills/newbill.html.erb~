@@ -1,0 +1,18 @@
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
+
+<h1 align = center>ใบเสร็จรับเงิน</h1>
+  <p>Project title : <%= @bill.title %></p>
+
+<%= render :partial => "billdescrips/billdescrip" %>
+
+
+<%= render "billdescrips/form"%>
+
+
+<br />
+<!-- :target => '_blank' -->
+<%= link_to 'Print view',print_customer_bill_path(@customer,@bill), :target => '_blank' %>
+<%= link_to 'Back', bills_path %>
+<%= link_to edit, edit_customer_bill_path(@bill.customer, @bill) %>

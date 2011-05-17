@@ -1,11 +1,11 @@
 module ApplicationHelper
   
   def logo
-    image_tag("codeapp.jpeg",:alt => "Sample App" , :class => "round")
+    image_tag("codeapp.jpeg",:alt => "Sample App" , :class => "round",:width => "160",:height => "60")
   end
   
   def edit
-    image_tag("icon-edit.gif",:alt => "Edit",:width => "25",:height => "25")
+    image_tag("icon-edit.gif",:alt => "Edit",:title => "edit",:width => "25",:height => "25")
   end
   
   def show

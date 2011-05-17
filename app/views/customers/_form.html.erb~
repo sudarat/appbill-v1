@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :cust_name,"Customer name" %><br />
-    <%= f.text_field :cust_name %>
+    <%= f.label :name,"Customer name" %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :cust_address ,"Customer address"%><br />
-    <%= f.text_area :cust_address ,:class => "cust"%>
+    <%= f.label :address ,"Customer address"%><br />
+    <%= f.text_area :address ,:class => "cust"%>
   </div>
   <div class="actions">
     <%= f.submit %>

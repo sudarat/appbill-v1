@@ -19,6 +19,6 @@
 
 <br />
 <!-- :target => '_blank' -->
-<%= link_to 'Print view',print_customer_bill_path(@customer,@bill), :target => '_blank' %>
-<%= link_to 'Back', bills_path %>
-<%= link_to edit, edit_customer_bill_path(@bill.customer, @bill) %>
+<%= link_to 'Print view',print_customer_bill_path(@customer,@bill),:format => "html", :target => '_blank' %>
+<%= link_to 'Back', bills_path,:format => "html" %>
+<%= link_to edit, edit_customer_bill_path(@bill.customer, @bill),:format => "html" %>

@@ -18,8 +18,8 @@
   <td width="100"><center><%= billdescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([billdescrip.bill.customer,billdescrip.bill,billdescrip]) %> -->
-     <%= link_to edit, edit_customer_bill_billdescrip_path(billdescrip.bill.customer,billdescrip.bill,billdescrip) %>
-     <%= link_to delete,[billdescrip.bill.customer,billdescrip.bill,billdescrip],
+     <%= link_to edit, edit_customer_bill_billdescrip_path(billdescrip.bill.customer,billdescrip.bill,billdescrip),:format => "html" %>
+     <%= link_to delete,[billdescrip.bill.customer,billdescrip.bill,billdescrip],:format => "html",
 		 :confirm => "Are you sure?",
 		 :method => :delete %></td>
 <% end %>

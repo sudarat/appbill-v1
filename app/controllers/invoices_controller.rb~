@@ -27,7 +27,7 @@ class InvoicesController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.find(params[:id])
     @invoice.destroy
-    redirect_to invoices_path
+    redirect_to invoices_path,:notice => 'Invoice delete.'
   end
   
   def edit
@@ -60,6 +60,16 @@ class InvoicesController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.find(params[:id])
     render :layout => 'print'
+  end
+  
+  def newinvoice
+    @customer = Customer.find(params[:customer_id])
+    @invoice = @customer.invoices.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @project }
+    end
   end
 
 end

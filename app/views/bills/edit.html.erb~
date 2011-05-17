@@ -1,4 +1,4 @@
-<h1>แก้ไขใบเสร็จรับเงิน</h1>
+<h1>Edit bill</h1>
 
 <% flash .each do |key, value| %>
   <% if value ==  "Description Error." %>
@@ -23,11 +23,11 @@
   <% end %>
 
   <div class="field">
-    <%= b.label :customer_id , 'Customer id'%><br />
-    <%= b.text_field :customer_id %>
+    <%= b.label :customer_id , 'Customer'%><b> : </b>
+    <%= b.collection_select(:customer_id, Customer.all, :id,:name) %> 
   </div>
   <div class="field">
-    <%= b.label :title , 'Project title'%><br />
+    <%= b.label :title , 'Project title'%><b> : </b>
     <%= b.text_field :title %>
   </div>
 
@@ -41,5 +41,5 @@
 <%= render "billdescrips/form"%>
 
 
-<%= link_to 'Back', invoices_path %>
+<%= link_to 'Back', bills_path %>
 

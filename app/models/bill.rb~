@@ -1,6 +1,6 @@
 class Bill < ActiveRecord::Base
   belongs_to :customer
-  has_many :billdescrips
+  has_many :billdescrips :dependent => :destroy
   
   validates_presence_of :title
   
@@ -9,10 +9,10 @@ class Bill < ActiveRecord::Base
     
     billdescrips.each do |detail|
 	html += "<tr valign= top >
-		  <td class=bordertop borderright><font size = 2>#{detail.billd_descrip}</font></td> 
-		  <td class=borderdetail><font size = 2>#{detail.billd_quantity}</font></td> 
-		  <td align= right class=borderdetail><font size = 2>#{detail.billd_unitprice}</font></td> 
-		  <td align=right class=bordertop><font size=2>#{detail.billd_unitprice*detail.billd_quantity}</font></td>
+		  <td class=bordertop borderright><font size = 2>#{detail.description}</font></td> 
+		  <td class=borderdetail><font size = 2>#{detail.quantity}</font></td> 
+		  <td align= right class=borderdetail><font size = 2>#{detail.unit_price}</font></td> 
+		  <td align=right class=bordertop><font size=2>#{detail.unit_price*detail.quantity}</font></td>
 		 </tr>"
     end
     
@@ -23,7 +23,7 @@ class Bill < ActiveRecord::Base
     subtotal = 0
     
     billdescrips.each do |detail|
-	subtotal += detail.billd_unitprice*detail.billd_quantity
+	subtotal += detail.unit_price*detail.quantity
     end
     
     return subtotal
@@ -33,7 +33,7 @@ class Bill < ActiveRecord::Base
     tax = 0
     
     billdescrips.each do |detail|
-	tax += detail.billd_unitprice*detail.billd_quantity
+	tax += detail.unit_price*detail.quantity
     end
     
     tax = (tax * 7)/100
@@ -45,7 +45,7 @@ class Bill < ActiveRecord::Base
     total = 0
     
     billdescrips.each do |detail|
-	total += detail.billd_unitprice*detail.billd_quantity
+	total += detail.unit_price*detail.quantity
     end
     
     total = total + ((total * 7)/100)

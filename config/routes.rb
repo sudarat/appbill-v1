@@ -1,7 +1,7 @@
 Codeapp1::Application.routes.draw do
   
   resources :newreports
-
+  
   resources :customers do
     resources :quotations do 
       resources :quotadescrips

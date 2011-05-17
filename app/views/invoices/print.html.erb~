@@ -8,7 +8,7 @@
 </THEAD>
 <TBODY>
   <tr><td colspan=3 align="center" valign="bottom" height="90px"><h2>ใบส่งของ/ใบแจ้งหนี้</h2></td></tr>
-  <tr><td colspan=3 valign="top"><p><font size=2>PROJECT TITLE : <%= @invoice.inv_title %></p></font></td></tr>
+  <tr><td colspan=3 valign="top"><p><font size=2>PROJECT TITLE : <%= @invoice.title %></p></font></td></tr>
 
   <tr><td colspan=3 valign="top">
     <table border=0 width ="100%" class="tdesc ">
@@ -56,4 +56,4 @@
 </font>
 </TFOOT>
 
-<!-- <%= link_to "Download (PDF)",print_customer_invoice_path(@customer,@invoice,:format => "pdf") %> -->
+<%= link_to "Download (PDF)",print_customer_invoice_path(@customer,@invoice,:format => "pdf") %>

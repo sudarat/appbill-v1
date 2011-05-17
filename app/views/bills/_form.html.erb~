@@ -13,8 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= b.label :bill_title , 'Project title'%><br />
-    <%= b.text_field :bill_title %>
+    <%= b.label :title , 'Project title'%><br />
+    <%= b.text_field :title %>
   </div>
 
   <div class = "actions">

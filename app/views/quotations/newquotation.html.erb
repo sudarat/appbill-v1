@@ -1,0 +1,29 @@
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
+
+<h1 align = center>ใบเสนอราคา</h1>
+  <p>Project title : <%= @quotation.title %></p>
+  <p>Detail : <%= @quotation.detail %></p>
+  <p>Terms : <%= @quotation.terms %> Days</p>
+  
+
+<!--
+<%= link_to 'Back', @customer %>
+-->
+<!-- Description -->
+<%= render :partial => "quotadescrips/quotadescrip" %>
+<%= render "quotadescrips/form"%>
+
+  <% if (@quotation.condition != "")%>
+  <p>condition : <%= @quotation.condition %></p>
+  <% end %>
+
+
+
+
+
+<br />
+<%= link_to 'Print view', print_customer_quotation_path(@customer,@quotation),:format => "html", :target => '_blank' %>
+<%= link_to 'Back', quotations_path,:format => "html" %>
+<%= link_to edit, edit_customer_quotation_path(@quotation.customer, @quotation),:format => "html" %>

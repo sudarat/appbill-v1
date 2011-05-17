@@ -1,4 +1,4 @@
-<h1>แก้ไขโปรเจค</h1>
+<h1>Edit invoice</h1>
 
 <% flash .each do |key, value| %>
   <% if value ==  "Description Error." %>
@@ -24,12 +24,12 @@
   <% end %>
 
   <div class="field">
-    <%= i.label :customer_id , 'Customer id'%><br />
-    <%= i.text_field :customer_id %>
+    <%= i.label :customer_id , 'Customer id'%><b> : </b>
+    <%= i.collection_select(:customer_id, Customer.all, :id,:name) %>
   </div>
 
   <div class="field">
-    <%= i.label :title , 'Project title'%><br />
+    <%= i.label :title , 'Project title'%><b> : </b>
     <%= i.text_field :title %>
   </div>
 
@@ -39,7 +39,6 @@
 <% end %>
 
 
-<h2>Description</h2>
 <%= render :partial => "invoicedescrips/invoicedescrip" %>
 
 <%= render "invoicedescrips/form"%>

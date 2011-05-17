@@ -1,21 +1,23 @@
-<h1>กรุณาเลือกลูกค้า</h1>
+<center><h1>Add report</h1></center>
 
 <table>
   <tr>
-    <th>ชื่อลูกค้า</th>
+    <th width = 100px>Customer</th>
     <th></th>
-    <th>ที่อยู่</th>
+    <th>Address</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%= customer.name %></td>
+    <td width = 100px><%= customer.name %></td>
     <td></td>
     <td><%= customer.address %></td>
-    <td><%= link_to ok, customer %>|
-	<%= link_to edit, edit_customer_path(customer) %></td>
+    <td><%= link_to edit, edit_customer_path(customer,:format => "html") ,:class => "right" %>
+      <div class="right">|</div>
+      <%= link_to ok,customer_path(customer,:format => "html"),:class => "right"%>
+    </td>
     <!-- <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td> -->
   </tr>
 <% end %>
@@ -24,6 +26,6 @@
 <br />
 
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'New Customer', new_customer_path,:format => "html" %>
 
 

@@ -18,8 +18,8 @@
   <td width="100"><center><%= quotadescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip]) %> -->
-     <%= link_to editdesc, edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip) %>
-     <%= link_to deletedesc,[quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip],
+     <%= link_to editdesc, edit_customer_quotation_quotadescrip_path(quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip),:format => "html" %>
+     <%= link_to deletedesc,[quotadescrip.quotation.customer,quotadescrip.quotation,quotadescrip],:format => "html",
 		 :confirm => "Are you sure?",
 		 :method => :delete %></td>
 <% end %>

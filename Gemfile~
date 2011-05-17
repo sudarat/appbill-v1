@@ -31,3 +31,4 @@ gem 'sqlite3'
 # end
 
 gem "pdfkit"
+gem "wkhtmltopdf"

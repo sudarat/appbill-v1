@@ -1,5 +1,5 @@
 <% flash .each do |key, value| %>
-  <%= content_tag(:div, value, :class => "descrip") %> 
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
 <% end %>
 
 <h1>ข้อมูลลูกค้า</h1>
@@ -13,8 +13,8 @@
   <%= @customer.address %>
 </p>
 
-<%= link_to 'สร้างใบเสนอราคา', new_customer_quotation_path(@customer)  %>|
-<%= link_to 'สร้างใบแจ้งหนี้', new_customer_invoice_path(@customer)  %>|
-<%= link_to 'สร้างใบเสร็จรับเงิน', new_customer_bill_path(@customer)  %>|
-<%= link_to 'แก้ไขข้อมูลลูกค้า', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Add quotation', new_customer_quotation_path(@customer)  %> |
+<%= link_to 'Add invoice', new_customer_invoice_path(@customer)  %> |
+<%= link_to 'Add bill', new_customer_bill_path(@customer)  %> |
+<%= link_to 'Edit customer', edit_customer_path(@customer) %>
+<!-- <%= link_to 'Back', customers_path %> -->

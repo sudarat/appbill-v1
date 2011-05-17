@@ -1,8 +1,8 @@
   <p>Project title : <%= quotation.title %></p>  
   <p> 
-      <%= link_to 'แสดงรายละเอียด', ([quotation.customer, quotation]) %>
-      <%= link_to 'แก้ไขโปรเจค', edit_customer_quotation_path(quotation.customer, quotation) %>
-      <%= link_to 'ลบโปรเจค' , [quotation.customer , quotation ], 
+      <%= link_to 'แสดงรายละเอียด', ([quotation.customer, quotation]),:format => "html" %>
+      <%= link_to 'แก้ไขโปรเจค', edit_customer_quotation_path(quotation.customer, quotation),:format => "html" %>
+      <%= link_to 'ลบโปรเจค' , [quotation.customer , quotation ],:format => "html", 
 	      :confirm => "Are you sure?" ,
 	      :method => :delete %></p>
 =============================================<br />

@@ -1,6 +1,6 @@
 class Quotation < ActiveRecord::Base
   belongs_to :customer
-  has_many :quotadescrips
+  has_many :quotadescrips :dependent => :destroy
   
   validates_presence_of :title,:detail,:terms
   
@@ -14,10 +14,10 @@ class Quotation < ActiveRecord::Base
     
     quotadescrips.each do |detail|
 	html += "<tr valign= top >
-		  <td class=bordertop borderright><font size=2>#{detail.qd_descrip}</font></td> 
-		  <td class=borderdetail><font size=2>#{detail.qd_quantity}</font></td> 
-		  <td align= right class=borderdetail><font size=2>#{detail.qd_unitprice}</font></td> 
-		  <td align= right class=bordertop borderleft><font size=2>#{detail.qd_unitprice*detail.qd_quantity}</font></td>
+		  <td class=bordertop borderright><font size=2>#{detail.description}</font></td> 
+		  <td class=borderdetail><font size=2>#{detail.quantity}</font></td> 
+		  <td align= right class=borderdetail><font size=2>#{detail.unit_price}</font></td> 
+		  <td align= right class=bordertop borderleft><font size=2>#{detail.unit_price*detail.quantity}</font></td>
 		 </tr>"
     end
     
@@ -28,7 +28,7 @@ class Quotation < ActiveRecord::Base
     subtotal = 0
     
     quotadescrips.each do |detail|
-	subtotal += detail.qd_unitprice*detail.qd_quantity
+	subtotal += detail.unit_price*detail.quantity
     end
     
     return subtotal
@@ -38,7 +38,7 @@ class Quotation < ActiveRecord::Base
     tax = 0
     
     quotadescrips.each do |detail|
-	tax += detail.qd_unitprice*detail.qd_quantity
+	tax += detail.unit_price*detail.quantity
     end
     
     tax = (tax * 7)/100
@@ -50,7 +50,7 @@ class Quotation < ActiveRecord::Base
     total = 0
     
     quotadescrips.each do |detail|
-	total += detail.qd_unitprice*detail.qd_quantity
+	total += detail.unit_price*detail.quantity
     end
     
     total = total + ((total * 7)/100)

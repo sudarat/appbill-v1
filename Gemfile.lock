@@ -65,6 +65,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    wkhtmltopdf (0.1.2)
 
 PLATFORMS
   ruby
@@ -73,3 +74,4 @@ DEPENDENCIES
   pdfkit
   rails (= 3.0.6)
   sqlite3
+  wkhtmltopdf

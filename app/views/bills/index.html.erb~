@@ -1,4 +1,6 @@
-<h1 align = center>ใบเสร็จรับเงิน</h1>
+<html>
+<h1 align = center>Bills</h1>
+
 <% flash .each do |key, value| %>
   <%= content_tag(:div, value, :class => "flash #{key}") %> 
 <% end %>
@@ -6,11 +8,11 @@
 
 <table>
   <tr>
-    <th>bill-id</th>
+    <th width=50px>Bill-ID</th>
     <th></th>
-    <th>ชื่อลูกค้า</th>
+    <th width=100px>Customer</th>
     <th></th>
-    <th>Project</th>
+    <th width=270px>Project</th>
     <th></th>
     <th></th>
   </tr>
@@ -21,13 +23,15 @@
     <td></td>
     <td><%= b.customer.name%></td>
     <td></td>
-    <td><%= b.title %></td>
+    <td width=50px><%= b.title %></td>
     <td></td>
-    <td><%= link_to show, ([b.customer, b]) %>|
-	<%= link_to edit, edit_customer_bill_path(b.customer, b) %>|
-	<%= link_to delete, [b.customer , b ], 
-	      :confirm => "Are you sure?" ,
-	      :method => :delete %></td>
+    <td><%= link_to delete, [b.customer , b ],:format => "html",:confirm => "Are you sure?" ,:method => :delete , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to edit, edit_customer_bill_path(b.customer, b),:format => "html" , :class => "right"%>
+    <div class = "right">|</div>
+    <%= link_to show, ([b.customer, b]),:format => "html" , :class => "right"%>
+    </td>
   </tr>
 <% end %>
 </table>
+</html>

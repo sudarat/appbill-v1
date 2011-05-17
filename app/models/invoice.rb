@@ -3,7 +3,7 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :title
   
   belongs_to :customer
-  has_many :invoicedescrips
+  has_many :invoicedescrips ,:dependent => :destroy
   
 
   def details_html

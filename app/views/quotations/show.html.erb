@@ -21,6 +21,6 @@
 
 
 <br />
-<%= link_to 'Print view', print_customer_quotation_path(@customer,@quotation), :target => '_blank' %>
-<%= link_to 'Back', quotations_path %>
-<%= link_to edit, edit_customer_quotation_path(@quotation.customer, @quotation) %>
+<%= link_to 'Print view', print_customer_quotation_path(@customer,@quotation,:format => "html"), :target => '_blank' %>
+<%= link_to 'Back', quotations_path,:format => "html" %>
+<%= link_to edit, edit_customer_quotation_path(@quotation.customer, @quotation) ,:format => "html"%>

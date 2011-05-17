@@ -1,5 +1,7 @@
-<h1>แก้ไขข้อมูลลูกค้า</h1>
-
+<h1>Edit customer</h1>
+<% flash .each do |key, value| %>
+  <%= content_tag(:div, value, :class => "flash #{key}") %> 
+<% end %>
 <%= render 'form' %>
 
 

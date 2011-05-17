@@ -8,7 +8,7 @@
 </THEAD>
 <TBODY>
   <tr><td colspan=3 align="center" valign="bottom" height="90px"><h2>ใบเสร็จรับเงิน</h2></td></tr>
-  <tr><td colspan=3 valign="top"><p><font size=2>PROJECT TITLE : <%= @bill.bill_title %></p></font></td></tr>
+  <tr><td colspan=3 valign="top"><p><font size=2>PROJECT TITLE : <%= @bill.title %></p></font></td></tr>
   <tr><td colspan=3 valign="top">
     <table border=0 width ="100%" class="tdesc ">
     <tr align="center" class="bgdesc borderbottom">
@@ -57,4 +57,4 @@
 </font>
 </TFOOT>
 
-<!-- <%= link_to "Download (PDF)",print_customer_bill_path(@customer,@bill,:format => "pdf") %> -->
+<%= link_to "Download (PDF)",print_customer_bill_path(@customer,@bill,:format => "pdf") %>

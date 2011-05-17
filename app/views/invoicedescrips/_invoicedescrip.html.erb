@@ -18,8 +18,8 @@
   <td width="100"><center><%= invoicedescrip.unit_price %></center></td>
   <td></td>
   <td><!-- <%= link_to 'show',([invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip]) %> -->
-     <%= link_to edit, edit_customer_invoice_invoicedescrip_path(invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip) %>
-     <%= link_to delete,[invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip],
+     <%= link_to edit, edit_customer_invoice_invoicedescrip_path(invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip),:format => "html" %>
+     <%= link_to delete,[invoicedescrip.invoice.customer,invoicedescrip.invoice,invoicedescrip],:format => "html",
 		 :confirm => "Are you sure?",
 		 :method => :delete %></td>
 <% end %>

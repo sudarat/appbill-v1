@@ -2,12 +2,12 @@
   <%= link_to logo, root_path%>
   <nav class="round">
      <ul>
-	<li><%= link_to "Home",root_path %></li>
-	<li><%= link_to "Customer",customers_path %></li>
-	<li><%= link_to "Add Report",newreports_path %></li>
-	<li><%= link_to 'ใบเสนอราคา', quotations_path %></li>
-	<li><%= link_to 'ใบแจ้งหนี้', invoices_path %><br /></li>
-	<li><%= link_to 'ใบเสร็จรับเงิน', bills_path %></li>	
+	<li><%= link_to "Home",root_path ,:format => "html"%></li>
+	<li><%= link_to "Customers",customers_path ,:format => "html"%></li>
+	<li><%= link_to "Add Report",newreports_path ,:format => "html"%></li>
+	<li><%= link_to "Quotations", quotations_path ,:format => "html"%></li>
+	<li><%= link_to "Invoices", invoices_path ,:format => "html"%><br /></li>
+	<li><%= link_to "Bills", bills_path ,:format => "html",:target=>"_parent"%></li>	
      </ul>
    </nav>
   <nav>

@@ -3,13 +3,8 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :title
   
   belongs_to :customer
-  has_many :invoicedescrips
+  has_many :invoicedescrips :dependent => :destroy
   
-  
-  
-  #validate do |invoice|
-  #  invoice.errors.add_to_base("Project Title can't be blank") if invoice.inv_title.blank?
-  #end
 
   def details_html
     html = ""

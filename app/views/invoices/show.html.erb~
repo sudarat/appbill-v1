@@ -21,3 +21,4 @@
 <!-- :target => '_blank' -->
 <%= link_to 'Print view',print_customer_invoice_path(@customer,@invoice), :target => '_blank' %>
 <%= link_to 'Back', invoices_path %>
+<%= link_to edit, edit_customer_invoice_path(@invoice.customer, @invoice) %>

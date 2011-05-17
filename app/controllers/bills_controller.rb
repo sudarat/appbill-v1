@@ -15,7 +15,7 @@ class BillsController < ApplicationController
     
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to customer_bill_path(@customer,@bill, :notice => 'Customer was successfully created.') }
+        format.html { redirect_to newbill_customer_bill_path(@customer,@bill, :notice => 'Customer was successfully created.') }
       else
         format.html { render :action => "new" }
         #format.xml  { render :xml => @customer.errors, :status => :unprocessable_entity }
@@ -61,5 +61,15 @@ class BillsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @bill = @customer.bills.find(params[:id])
     render :layout => 'print'
+  end
+  
+  def newbill
+    @customer = Customer.find(params[:customer_id])
+    @bill = @customer.bills.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @project }
+    end
   end
 end

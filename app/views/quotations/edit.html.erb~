@@ -1,4 +1,4 @@
-<h1>แก้ไขโปรเจค</h1>
+<h1>Edit quotation</h1>
 <% flash .each do |key, value| %>
   <% if value ==  "Description Error." %>
   <%= content_tag(:div, value, :class => "descrip") %>
@@ -23,38 +23,39 @@
   <% end %>
 
   <div class="field">
-    <%= q.label :customer_id , 'Customer id'%><br />
-    <%= q.text_field :customer_id %>
+    <%= q.label :customer_id , 'Customer id'%><b> : </b>
+    <%= q.collection_select(:customer_id, Customer.all, :id,:name) %>
   </div>
   <div class="field">
-    <%= q.label :title , 'Project title'%><br />
+    <%= q.label :title , 'Project title'%><b> : </b>
     <%= q.text_field :title %>
   </div>
   <div class="field">
-    <%= q.label :detail %><br />
+    <%= q.label :detail %><b> : </b>
     <%= q.text_field :detail %>
   </div>
   <div class="field">
-    <%= q.label :terms %><br />
+    <%= q.label :terms %><b> : </b>
     <%= q.text_field :terms %>
   </div>
   <div class="field">
-    <%= q.label :condition %><br />
-    <%= q.text_field :condition %>
+    <%= q.label :condition %><b> : </b><br />
+    <%= q.text_area :condition ,:class => "condition"%>
   </div>
 
+  <center>
   <div class = "actions">
     <%= q.submit %>
   </div>
+  </center>
 <% end %>
 
+  <%= render :partial => "quotadescrips/quotadescrip" %>
 
-<h2>Description</h2>
-<%= render :partial => "quotadescrips/quotadescrip" %>
+  <%= render "quotadescrips/form"%>
 
-<!-- <h2>Add a description</h2> -->
-<%= render "quotadescrips/form"%>
 
 
 <%= link_to 'Back', quotations_path %>
+<%= link_to show, customer_quotation_path(@customer,@quotation) %>
 

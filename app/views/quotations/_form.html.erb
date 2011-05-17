@@ -14,23 +14,23 @@
   <% end %>
 
   <div class="field">
-    <%= q.label :title , 'Project title'%><br />
+    <%= q.label :title , 'Project title'%><b> : </b>
     <%= q.text_field :title %>
   </div>
   <div class="field">
-    <%= q.label :detail %><br />
+    <%= q.label :detail %><b> : </b>
     <%= q.text_field :detail %>
   </div>
   <div class="field">
-    <%= q.label :terms %><br />
+    <%= q.label :terms %><b> : </b>
     <%= q.text_field :terms %>
   </div>
   <div class="field">
-    <%= q.label :condition %><br />
-    <%= q.text_field :condition %>
+    <%= q.label :condition %><b> : </b><br />
+    <%= q.text_area :condition ,:class => "condition"%>
   </div>
 
   <div class = "actions">
-    <%= q.submit %>
+    <%= q.submit%>
   </div>
 <% end %>
