@@ -1,8 +1,8 @@
 class CreateCustomers < ActiveRecord::Migration
   def self.up
     create_table :customers do |t|
-      t.string :name
-      t.text :address
+      t.string :cust_name
+      t.text :cust_address
 
       t.timestamps
     end

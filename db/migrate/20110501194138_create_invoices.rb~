@@ -1,7 +1,7 @@
 class CreateInvoices < ActiveRecord::Migration
   def self.up
     create_table :invoices do |t|
-      t.string :title
+      t.string :inv_title
       t.references :customer
 
       t.timestamps

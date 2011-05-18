@@ -1,9 +1,9 @@
 class CreateQuotadescrips < ActiveRecord::Migration
   def self.up
     create_table :quotadescrips do |t|
-      t.string :description
-      t.integer :quantity
-      t.integer :unit_price
+      t.string :qd_descrip
+      t.integer :qd_quantity
+      t.integer :qd_unitprice
       t.references :quotation
 
       t.timestamps
